@@ -1,0 +1,13 @@
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+.vscode
+
+#ignore parcel
+/.cache
+/dist
+/public
+
+#ignore node_modules
+/node_modules
