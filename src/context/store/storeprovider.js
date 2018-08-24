@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import StoreContext from './storecontext';
+import StoreContext from './StoreContext';
 
 class StoreProvider extends Component {
     state = {
@@ -18,9 +18,11 @@ class StoreProvider extends Component {
     };
 
     render() {
+        const { children } = this.props;
+
         return (
             <StoreContext.Provider value={this.state}>
-                {this.props.children}
+                {children}
             </StoreContext.Provider>
         );
     }

@@ -7,8 +7,8 @@ import {
     Message,
     Divider
 } from 'semantic-ui-react';
-import SignInButton from './signinbutton';
-import BoringButton from './boringbutton';
+import SignInButton from './SignInButton';
+import BoringButton from './BoringButton';
 import './login.css';
 
 const Login = () => (

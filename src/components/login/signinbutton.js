@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
-import StoreContext from '../../context/store/storecontext';
+import StoreContext from '../../context/store/StoreContext';
 
 const SignInButton = () => (
     <StoreContext.Consumer>

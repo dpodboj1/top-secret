@@ -1,11 +1,11 @@
-import { auth } from './firebase';
+import { auth } from 'firebase/auth';
 
-const doSignInWithRedirect = authProvider => {
-    auth.signInWithRedirect(authProvider);
+const doSignInWithRedirect = async authProvider => {
+    await auth.signInWithRedirect(authProvider);
 };
 
-const doSignOut = () => {
-    auth.signOut();
+const doSignOut = async () => {
+    await auth.signOut();
 };
 
 export { doSignInWithRedirect, doSignOut };

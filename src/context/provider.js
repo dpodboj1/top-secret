@@ -1,5 +1,5 @@
 import React from 'react';
-import StoreProvider from './store/storeprovider';
+import StoreProvider from './store/StoreProvider';
 
 const Provider = ({ children }) => <StoreProvider>{children}</StoreProvider>;
 
