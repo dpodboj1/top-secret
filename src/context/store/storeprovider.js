@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import StoreContext from './StoreContext';
 
 class StoreProvider extends Component {
+    static propTypes = {
+        children: PropTypes.node.isRequired
+    };
+
     state = {
         store: {
             authUser: null
         },
         actions: {
-            myAction: () => {
+            updateAuthUser: authUser => {
                 this.setState({
-                    store: {
-                        authUser: 'sup'
-                    }
+                    store: { authUser }
                 });
             }
         }
@@ -19,7 +23,7 @@ class StoreProvider extends Component {
 
     render() {
         const { children } = this.props;
-
+        debugger;
         return (
             <StoreContext.Provider value={this.state}>
                 {children}

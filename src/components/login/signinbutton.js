@@ -1,20 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Button } from 'semantic-ui-react';
-import StoreContext from '../../context/store/StoreContext';
 
-const SignInButton = () => (
-    <StoreContext.Consumer>
-        {({ actions }) => (
+import withStore from '../../context/store/withStore';
+import { auth } from '../../firebase';
+import { googleAuthProvider } from '../../firebase/firebase';
+
+class SignInButton extends Component {
+    componentDidMount() {
+        this.listenToAuthChange();
+    }
+
+    listenToAuthChange = () => {
+        const { actions } = this.props;
+
+        auth.defaultAuth.onAuthStateChanged(authUser => {
+            actions.updateAuthUser(authUser);
+        });
+    };
+
+    render() {
+        return (
             <Button
-                onClick={() => actions.myAction()}
+                onClick={() => auth.doSignInWithPopup(googleAuthProvider)}
                 color="blue"
                 fluid
                 size="large"
             >
                 Yes, I am awesome.
             </Button>
-        )}
-    </StoreContext.Consumer>
-);
+        );
+    }
+}
 
-export default SignInButton;
+export default withStore(SignInButton);

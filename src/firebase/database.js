@@ -1,1 +1,1 @@
-import { database } from 'firebase/database';
+import defaultApp from './firebase';

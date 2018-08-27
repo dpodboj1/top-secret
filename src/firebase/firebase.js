@@ -1,4 +1,6 @@
 import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
 
 const config = {
     apiKey: 'AIzaSyAee2gIRDFpHWQc1q0NSLddc8idF9VvD8M',
@@ -7,13 +9,8 @@ const config = {
     projectId: 'top-secret-8ef19'
 };
 
-if (!firebase.apps.length) {
-    firebase.initializeApp(config);
-}
+const defaultApp = firebase.initializeApp(config, 'top-secret');
 
-const database = firebase.database();
+export const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-const auth = firebase.auth();
-const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
-
-export { database, auth, googleAuthProvider };
+export default defaultApp;

@@ -1,11 +1,11 @@
-import { auth } from 'firebase/auth';
+import defaultApp from './firebase';
 
-const doSignInWithRedirect = async authProvider => {
-    await auth.signInWithRedirect(authProvider);
+export const defaultAuth = defaultApp.auth();
+
+export const doSignInWithPopup = authProvider => {
+    defaultAuth.signInWithPopup(authProvider);
 };
 
-const doSignOut = async () => {
-    await auth.signOut();
+export const doSignOut = () => {
+    defaultAuth.signOut();
 };
-
-export { doSignInWithRedirect, doSignOut };
